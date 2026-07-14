@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 
 # Read-only access is enough since we're only searching/downloading
-SCOPES = ["https://drive.google.com/drive/folders/1JlOxEL8x2pIUbX0BeuDcLRt0RbGiQ3w1"]
+SCOPES = [""]
 
 # MIME types we treat as "songs"
 AUDIO_MIME_TYPES = [
