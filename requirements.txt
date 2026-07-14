@@ -1,0 +1,7 @@
+demucs
+torch
+librosa
+matplotlib
+numpy
+soundfile
+pyloudnorm
