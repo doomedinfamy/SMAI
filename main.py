@@ -90,16 +90,7 @@ def generate_spectrogram(segment, sr, save_path, title="Spectrogram"):
 # --------------------------------------------------------------------------
 def volume_percentage_colors(segment, sr, hop_length=512, frame_length=2048,
                               colormap="plasma"):
-    """
-    Compute the volume (RMS energy) of a segment over time, express each
-    value as a percentage of the loudest moment in that segment (0-100),
-    and map each percentage to a color using a matplotlib colormap.
-
-    Returns:
-        percentages: 1D numpy array, one value per time frame (0-100)
-        hex_colors:  list of hex color strings, same length as percentages
-        rgba_colors: list of (r, g, b, a) tuples (0-1 floats)
-    """
+    
     rms = librosa.feature.rms(y=segment, frame_length=frame_length,
                                hop_length=hop_length)[0]
 
@@ -123,16 +114,7 @@ def volume_percentage_colors(segment, sr, hop_length=512, frame_length=2048,
 # --------------------------------------------------------------------------
 def process_songs(song_paths, output_dir="segment_outputs", num_segments=5,
                    sr=22050, colormap="plasma"):
-    """
-    Process a list of song file paths.
-
-    For each song, creates a subfolder in output_dir containing:
-      - segment_N_spectrogram.png  for each of the num_segments segments
-      - results.json (per-song) with volume percentages + colors
-
-    Returns a dict keyed by song name with all results (also handy for
-    using the data directly in Python without reading the JSON back).
-    """
+    
     os.makedirs(output_dir, exist_ok=True)
     all_results = {}
 
