@@ -1,29 +1,3 @@
-"""
-stem_pipeline.py
-================
-Sound-mixing data pipeline for a single song.
-
-Steps
------
-1. Separate the song into stems (vocals / drums / bass / other) with Demucs.
-2. For every stem measure:
-     - loudness percentage  (share of the mix's total energy, 0-100 %)
-     - integrated loudness   (LUFS, if pyloudnorm is installed, else dBFS RMS)
-     - a spectral "color"    (a single RGB colour that summarises where the
-                              stem's energy sits: red = low, green = mid,
-                              blue = high frequencies)
-3. Render every stem's spectrogram, its loudness % bar and its colour swatch
-   into ONE combined image file per song, and write the raw numbers to a CSV.
-
-Usage
------
-    python stem_pipeline.py head.mp3
-    python stem_pipeline.py head.mp3 9.mp3 fre.mp3
-    python stem_pipeline.py *.mp3 --out results --model htdemucs
-
-Run it from inside the project's .venv so the deps below are available.
-"""
-
 from __future__ import annotations
 
 import argparse
