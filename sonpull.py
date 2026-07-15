@@ -45,18 +45,8 @@ def _get_drive_service():
 
 
 def load_song(keyword, download_dir="downloaded_songs", max_results=5):
-    """
-    Search Google Drive for songs matching a keyword and download them locally.
-
-    Args:
-        keyword (str): Text to match against file names, e.g. "bohemian rhapsody".
-        download_dir (str): Local folder to save matches into.
-        max_results (int): Max number of matching files to download.
-
-    Returns:
-        list[str]: Local file paths of the downloaded songs.
-    """
-    service = _get_drive_service()
+   
+   
 
     mime_filter = " or ".join(f"mimeType='{m}'" for m in AUDIO_MIME_TYPES)
     query = f"name contains '{keyword}' and ({mime_filter}) and trashed=false"
